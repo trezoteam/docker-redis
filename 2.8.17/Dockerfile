@@ -14,4 +14,7 @@ RUN cd /opt \
 
 COPY redis.conf /redis.conf
 
+RUN apt-get purge -y wget make gcc --autoremove \
+     && rm -Rf /var/cache/*
+
 CMD ["/usr/local/bin/redis-server", "/redis.conf"]
