@@ -12,6 +12,7 @@ RUN cd /opt \
     && make install \
     && rm -Rf /opt/*
 
+RUN mkdir -p /var/lib/redis
 COPY redis.conf /redis.conf
 
 RUN apt-get purge -y wget make gcc --autoremove \
